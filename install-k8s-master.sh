@@ -28,7 +28,7 @@ echo "Starting the docker bootstrap service"
 systemctl start docker-bootstrap.service
 
 echo "Pulling necessary etcd Docker image"
-docker -H unix:///var/run/docker-bootstrap.sock pull andrewpsuedonym/etcd:2.1.1
+docker -H unix:///var/run/docker-bootstrap.sock pull andrewpsuedonym/etcd:3.2.8
 echo "Starting the etcd service"
 systemctl start k8s-etcd.service
 
@@ -41,7 +41,7 @@ echo "Starting the docker service"
 systemctl start docker.service
 
 echo "Pulling necessary hyperkube Docker image"
-docker pull gcr.io/google_containers/hyperkube-arm:v1.1.2
+docker pull gcr.io/google_containers/hyperkube-arm:v1.8.0
 echo "Starting the kubernetes master service"
 systemctl start k8s-master.service
 

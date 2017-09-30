@@ -40,7 +40,7 @@ spec:
         - name: etcd-storage
           mountPath: /var/etcd/data
       - name: kube2sky
-        image: gcr.io/google_containers/kube2sky-arm:1.11
+        image: gcr.io/google_containers/kube2sky-arm:1.15
         resources:
           limits:
             cpu: 100m

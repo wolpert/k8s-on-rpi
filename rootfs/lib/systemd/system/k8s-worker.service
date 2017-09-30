@@ -17,12 +17,12 @@ ExecStart=/bin/bash -c "exec docker run \
                         -v /dev:/dev \
                         -v /var/lib/docker/:/var/lib/docker:rw \
                         -v /var/lib/kubelet/:/var/lib/kubelet:rw \
-						gcr.io/google_containers/hyperkube-arm:v1.1.2 /hyperkube kubelet \
+						gcr.io/google_containers/hyperkube-arm:v1.8.0 /hyperkube kubelet \
 							--v=2 \
 							--address=0.0.0.0 \
 							--enable-server \
 							--allow-privileged=true \
-							--pod_infra_container_image=gcr.io/google_containers/pause-arm:2.0 \
+							--pod_infra_container_image=gcr.io/google_containers/pause-arm:3.0 \
 							--api-servers=http://${K8S_MASTER_IP}:8080 \
 							--hostname-override=$(/bin/hostname -I | /usr/bin/awk '{print $1}') \
                             --cluster-dns=10.0.0.10 \
@@ -32,7 +32,7 @@ ExecStartPost=/bin/bash -c "sleep 10;/usr/bin/docker run -d \
 						--name=k8s-worker-proxy \
 						--net=host \
 						--privileged \
-						gcr.io/google_containers/hyperkube-arm:v1.1.2 /hyperkube proxy \
+						gcr.io/google_containers/hyperkube-arm:v1.8.0 /hyperkube proxy \
 							--master=http://${K8S_MASTER_IP}:8080 \
 							--v=2"
 #ExecStop=/usr/bin/docker stop k8s-worker k8s-worker-proxy
