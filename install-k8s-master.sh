@@ -28,7 +28,7 @@ echo "Starting the docker bootstrap service"
 systemctl start docker-bootstrap.service
 
 echo "Pulling necessary etcd Docker image"
-docker -H unix:///var/run/docker-bootstrap.sock pull andrewpsuedonym/etcd:3.2.8
+docker -H unix:///var/run/docker-bootstrap.sock pull andrewpsuedonym/etcd:2.1.1
 echo "Starting the etcd service"
 systemctl start k8s-etcd.service
 

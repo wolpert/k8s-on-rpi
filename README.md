@@ -24,6 +24,5 @@ http://blog.kubernetes.io/2015/12/creating-raspberry-pi-cluster-running.html
 Changed
 
     - kube2sky: 1.11 -> 1.15
-    - etcd 2.1.1 -> 3.2.8
     - hyperkube-arm 1.1.2 -> 1.8.0
     - pause-arm: 2.0 -> 3.0
